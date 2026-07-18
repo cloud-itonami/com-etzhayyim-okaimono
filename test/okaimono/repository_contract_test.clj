@@ -1,0 +1,10 @@
+(ns okaimono.repository-contract-test
+ (:require [clojure.edn :as edn] [clojure.test :refer [deftest is]]))
+(deftest canonical-edn
+ (doseq [p ["manifest.edn" "schema.edn" "identity.edn" "dependencies.edn"
+            "repository-contracts.edn" "migration.edn"]]
+  (is (some? (edn/read-string (slurp p))) p)))
+(deftest no-wire-payloads
+ (let [c (edn/read-string (slurp "repository-contracts.edn"))]
+  (is (= :edn (:canonical-data c)))
+  (is (empty? (get-in c [:external-formats :formats])))))
