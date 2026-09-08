@@ -8,7 +8,7 @@
   Ported (pure / local-file-read): MAKER-ACTORS, split-top-maps (brace-depth top-level map
   splitter, comment-stripped), kv* (regex field extractor), collect. OMITTED (CLI/write leg, not
   ported): main()/argparse + the merged internal-catalog.edn write. Paths repo-relative."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [clojure.java.io :as io]))
 
 (def maker-actors
