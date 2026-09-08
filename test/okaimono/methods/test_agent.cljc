@@ -4,7 +4,7 @@
   ranking beats price (G3/G4), 10% tithe internal-only (G7), external 代理 refused without gate
   (G2/G11), Ring-2 handoff no-affiliate (G3), R1 SBT economy, R2 catalog, R3 member-principal checkout."
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [okaimono.methods.agent :as agent]))
 
 (deftest test-commons-first-ordering

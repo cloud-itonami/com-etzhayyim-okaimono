@@ -4,7 +4,7 @@
 (ns okaimono.kotoba.ingest-mcp
   "okaimono 御買物 — MCP seed-ingest scaffold (dry-run default, live path placeholder).
   ADR-2606012101. Template: see funadaiku.kotoba.ingest-mcp."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])))
 
 (def default-url   "http://127.0.0.1:8077")

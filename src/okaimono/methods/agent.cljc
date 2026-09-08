@@ -5,7 +5,7 @@
   affiliate-strip, data-only) + R3 assisted member-principal checkout (G14/G15/G9). Pure compute;
   the Murakumo llm rerank + datalog catalog are omitted legs (no-op / empty when absent); the abaki
   anti-monopoly policy is read from disk only if present (graceful skip)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [clojure.java.io :as io]
             [clojure.edn :as edn]))
 
@@ -152,7 +152,7 @@
                      (str/split query #"&"))
                 [])
         kept (filter (fn [[k _]]
-                       (let [kl (str/lower-case k)]
+                       (let [kl (str/lower k)]
                          (and (not (AFFILIATE-PARAMS kl)) (not (some #(str/starts-with? kl %) AFFILIATE-PREFIXES)))))
                      pairs)
         opath (or path "")
