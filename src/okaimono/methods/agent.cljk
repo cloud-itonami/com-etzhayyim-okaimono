@@ -7,7 +7,7 @@
   anti-monopoly policy is read from disk only if present (graceful skip)."
   (:require [kotoba.lang.text :as str]
             [clojure.java.io :as io]
-            [clojure.edn :as edn]))
+            [kotoba.lang.edn :as edn]))
 
 (def RING-ORDER ["commons" "internal" "external"])
 (def TITHE-BPS 1000)
