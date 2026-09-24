@@ -9,14 +9,14 @@
   splitter, comment-stripped), kv* (regex field extractor), collect. OMITTED (CLI/write leg, not
   ported): main()/argparse + the merged internal-catalog.edn write. Paths repo-relative."
   (:require [kotoba.lang.text :as str]
-            [clojure.java.io :as io]))
+            [kotoba.io :as io]))
 
 (def maker-actors
   "Maker actors integrated into Ring 1 (mirrors manifest.edn :actor/integrates)."
   ["makura" "mitsuho" "yakushi" "tsutae" "futawa" "hikari"])
 
 (def ^:private actors-dir
-  (.getParent (io/file (or (System/getProperty "user.dir") "."))))
+  (io/parent (io/file (or (System/getProperty "user.dir") "."))))
 
 (defn split-top-maps
   "Yield each top-level {...} map literal in the outer [ ... ] vector (;-comment stripped).
@@ -63,7 +63,7 @@
   (reduce
    (fn [[products problems] actor]
      (let [path (str actors-dir "/com-etzhayyim-" actor "/products.edn")]
-       (if-not (.exists (io/file path))
+       (if-not (io/exists? (io/file path))
          [products (conj problems (str actor ": no products.edn (R1 catalog not yet declared)"))]
          (reduce
           (fn [[products problems] ent]

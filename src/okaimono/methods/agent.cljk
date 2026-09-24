@@ -6,7 +6,7 @@
   the Murakumo llm rerank + datalog catalog are omitted legs (no-op / empty when absent); the abaki
   anti-monopoly policy is read from disk only if present (graceful skip)."
   (:require [kotoba.lang.text :as str]
-            [clojure.java.io :as io]
+            [kotoba.io :as io]
             [kotoba.lang.edn :as edn]))
 
 (def RING-ORDER ["commons" "internal" "external"])
@@ -49,7 +49,7 @@
   (try
     (let [f (io/file (or (System/getenv "ABAKI_POLICY_PATH")
                          "orgs/etzhayyim/com-etzhayyim-abaki/out/routing-policy.edn"))]
-      (when (.exists f)
+      (when (io/exists? f)
         (let [policy (edn/read-string (slurp f))
               blocked (map #(get % "id") (get policy "blocked_entities" []))]
           (some (fn [bid] (when (or (str/includes? (str supplier-did) bid) (str/includes? (str supplier-name) bid))
