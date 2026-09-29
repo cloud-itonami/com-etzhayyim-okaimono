@@ -10,7 +10,7 @@ its inversion, organized as three concentric rings:
 
 No ads, no affiliate, no dark-patterns; Murakumo-only inference; kotoba-EAVT-native.
 
-See `CLAUDE.md` for the full design and ADR-2606012100 for the decision record.
+See `AGENTS.md` for the full design and ADR-2606012100 for the decision record.
 
 ```
 deploy:  KOTOBA_URL=http://127.0.0.1:8077 KOTOBA_TOKEN=<jwt> kotoba/deploy.sh

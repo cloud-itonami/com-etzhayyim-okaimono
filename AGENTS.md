@@ -1,4 +1,4 @@
-# okaimono 御買物 — CLAUDE.md
+# okaimono 御買物 — AGENTS.md
 
 Global **product-discovery + provisioning-commons** actor at `okaimono.etzhayyim.com`.
 ADR-2606012100.
